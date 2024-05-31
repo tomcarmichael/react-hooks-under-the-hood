@@ -1,9 +1,8 @@
-// import { useState } from 'react'
 import { useEffect, useState } from 'react'
 import './App.css'
 
 // Experimenting with the wrong to better understand the right way...
-let countA = 1;
+let count = 0;
 
 function Counter() {
   const [dummyState, setDummyState] = useState(1); // used to force re render
@@ -13,24 +12,19 @@ function Counter() {
   }
 
   const incrementA = () => {
-    countA += 1;
+    count += 1;
     forceUpdate();
   }
 
   useEffect(() => {
-    console.log(`Rendered. CountA = ${countA}`);
-    return () => {
-      console.log(`Cleaned up. CountA = ${countA}`);
-    }
+    console.log(`GlobalVarCounter rendered. count = ${count}`);
   });
 
   return (
-    <>
-      <div>
-        <h1>Count A: {countA}</h1>
-        <button onClick={incrementA}>Add</button>
-      </div>
-    </>
+    <div>
+      <h1>Count A: {count}</h1>
+      <button onClick={incrementA}>Add</button>
+    </div>
   )
 }
 
