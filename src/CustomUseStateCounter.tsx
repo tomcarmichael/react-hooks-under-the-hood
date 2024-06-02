@@ -3,7 +3,6 @@ import './App.css'
 
 let callIndex = -1;
 const state: unknown[] = [];
-// let stateValue: unknown;
 let forceRender: () => void;
 
 // use extends in type parameter declaration to avoid confusing the TSX parser
@@ -42,7 +41,7 @@ function Counter({ id }) {
   const [dummyState, setDummyState] = useState(0); // used to force re render
 
   forceRender = () => {
-    callIndex = -1;
+    callIndex = -1; // Needs to be reset before re render.
     setDummyState((prev) => prev + 1);
   }
 
