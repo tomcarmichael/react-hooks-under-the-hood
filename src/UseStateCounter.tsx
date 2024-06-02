@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 
-function Counter() {
+function Counter({ id }) {
 
   const [count, setCount] = useState(0);
  
@@ -11,7 +11,7 @@ function Counter() {
 
   return (
     <div>
-      <h1>Count: {count}</h1>
+      <h1>Count {id}: {count}</h1>
       <button onClick={() => setCount((prev) => prev +1)}>Add</button>
     </div>
   )

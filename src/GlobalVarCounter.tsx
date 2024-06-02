@@ -4,11 +4,11 @@ import './App.css'
 // Experimenting with the wrong to better understand the right way...
 let count = 0;
 
-function Counter() {
-  const [dummyState, setDummyState] = useState(1); // used to force re render
+function Counter({ id }) {
+  const [dummyState, setDummyState] = useState(true); // used to force re render
 
   const forceUpdate = () => {
-    setDummyState((prev) => prev + 1);
+    setDummyState((prev) => !prev);
   }
 
   const incrementA = () => {
@@ -22,7 +22,7 @@ function Counter() {
 
   return (
     <div>
-      <h1>Count A: {count}</h1>
+      <h1>Count {id}: {count}</h1>
       <button onClick={incrementA}>Add</button>
     </div>
   )
